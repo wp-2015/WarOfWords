@@ -28,4 +28,10 @@ public class NewBehaviourScript : MonoBehaviour
         //     
         // }
     }
+
+    private void Update()
+    {
+        GamePipelineManager.Instance.Update();
+        GameEntry.Instance.Update();
+    }
 }

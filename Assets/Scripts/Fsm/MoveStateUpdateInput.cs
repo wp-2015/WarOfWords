@@ -10,43 +10,26 @@ namespace WP
     public class MoveStateUpdateInput : BaseState
     {
         public RoleLogic roleLogic;
-        public KeyCode firstHandleInput = KeyCode.None;
+        public KeyCode InputKeyCode = KeyCode.None;
 
         private float speed;
         public override void Enter()
         {
+            EntityState = EntityState.MoveUpdateInput;
             var strength = roleLogic.FootStrength;
-            speed = strength / (GameConst.MaxStrength + 1);
+            speed = (float)strength / (GameConst.MaxStrength + 1) / 10;
+            GameCalculate.MoveCalculate(roleLogic, InputKeyCode, speed);
         }
 
-        public override void FixedUpdate()
+        public override void Update()
         {
-
+            base.Update();
+            GameCalculate.MoveCalculate(roleLogic, InputKeyCode, speed);
         }
 
         public override void Leave()
         {
             ObjectPool<MoveStateUpdateInput>.Instance.Release(this);
-        }
-
-        public override void Update()
-        {
-            var pos = roleLogic.pos;
-            if (InputManager.CheckSkillKey() != KeyCode.None)
-            {
-
-            }
-            else if (InputManager.CheckMoveKey() != KeyCode.None)
-            {
-                GameCalculate.MoveCalculate(roleLogic, InputManager.CheckMoveKey(), speed);
-            }
-            else
-            {
-                var idle = ObjectPool<RoleIdleState>.Instance.Get();
-                idle.roleLogic = roleLogic;
-                roleLogic.State = idle;
-            }    
-
         }
     }
 }

@@ -45,6 +45,7 @@ namespace WP
                 {GamePipelineStep.Hand, new GamePipelineHand()},
                 {GamePipelineStep.Foot, new GamePipelineFoot()},
                 {GamePipelineStep.CreateRole, new GamePipelineCreateRole()},
+                {GamePipelineStep.Play, new GamePipelinePlay()},
             };
 
         public void EnterPipeline()

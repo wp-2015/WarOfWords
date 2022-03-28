@@ -24,10 +24,11 @@ namespace WP
             {
                 roleLogic.pos = new Vector3(pos.x - speed, pos.y);
             }
-            else if (key == KeyCode.S)
+            else if (key == KeyCode.D)
             {
                 roleLogic.pos = new Vector3(pos.x + speed, pos.y);
             }
+            GameUtils.ShowLog(string.Format("动了，他动了，{1}要到到<{0}>去了", roleLogic.pos, roleLogic.id));
         }
     }
 }

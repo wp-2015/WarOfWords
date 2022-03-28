@@ -110,6 +110,8 @@ namespace WP
             role.VoiceStrength = pipeline.voiceStrength;
             role.HandStrength = pipeline.handStrength;
             role.FootStrength = pipeline.footStrength;
+            role.Ready();
+            GamePipelineManager.Instance.UpdatePipeline();
         }
     }
 }

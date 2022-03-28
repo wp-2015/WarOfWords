@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace WP
 {
@@ -11,6 +12,7 @@ namespace WP
         public RoleLogic roleLogic;
         public override void Enter()
         {
+            EntityState = EntityState.RoleIdle;
             GameUtils.ShowLog(string.Format("我{0}现在可要待机了嗷, 摇起来", roleLogic.Name));
         }
     }

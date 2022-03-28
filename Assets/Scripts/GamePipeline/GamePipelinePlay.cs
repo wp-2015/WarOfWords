@@ -17,31 +17,7 @@ namespace WP
         public override void Update()
         {
             base.Update();
-            var keyCode = InputManager.CheckMoveKey();
-            if(keyCode != KeyCode.None)
-            {
-                var moveState = ObjectPool<MoveStateUpdateInput>.Instance.Get();
-                GameAllInfo.SelfRole.State = moveState;
-                moveState.roleLogic = GameAllInfo.SelfRole;
-            }
-
-            //视为AnyState处理
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-
-            }
-            else if (Input.GetKey(KeyCode.A))
-            {
-
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-
-            }
+            InputManager.Instance.Update();
         }
     }
 }

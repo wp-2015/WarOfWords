@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace WP
 {
-    public class EntityManager : UnitySingleton<EntityManager>
+    public class EntityManager : Singleton_CSharp<EntityManager>
     {
         public RoleLogic SelfRole;
         private long iEntityIndex = 0;
@@ -44,6 +44,17 @@ namespace WP
                 foreach(var entity in lEntity.Value)
                 {
                     Debug.Log("id: " + entity.id);
+                }
+            }
+        }
+
+        public void Update()
+        {
+            foreach(var lEntity in dicAllEntity)
+            {
+                foreach(var entity in lEntity.Value)
+                {
+                    entity.Update();
                 }
             }
         }

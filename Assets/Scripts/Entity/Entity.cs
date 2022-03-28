@@ -15,6 +15,7 @@ namespace WP
             {
                 baseState?.Leave();
                 baseState = value;
+                baseState.Enter();
             }
         }
 
