@@ -17,7 +17,7 @@ namespace WP
         {
             EntityState = EntityState.MoveUpdateInput;
             var strength = roleLogic.FootStrength;
-            speed = (float)strength / (GameConst.MaxStrength + 1) / 10;
+            speed = GameCalculate.GetRoleSpeed(roleLogic);
             GameCalculate.MoveCalculate(roleLogic, InputKeyCode, speed);
         }
 

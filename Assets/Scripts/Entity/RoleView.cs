@@ -1,12 +1,15 @@
 using System;
 using Unity.VisualScripting;
+using UnityEngine;
 using WP.OtherConfig;
 
 namespace WP
 {
     public class RoleView : Entity
     {
+        private RoleLogic roleLogic;
         public string Name { get; set; }
+        private float fSpeed;
 
         private BodyInfo bodyInfo;
         public BodyInfo BodyInfo
@@ -74,15 +77,32 @@ namespace WP
             range = UnityEngine.Random.Range(0, bi.Des.Length);
             GameUtils.ShowLog(string.Format("{0}: {1}", tag, bi.Des[range]) );
         }
-        
-        public override void Init(long id)
+
+        public void SetLogic(RoleLogic roleLogic)
         {
-            base.Init(id);
+            this.roleLogic = roleLogic;
+            pos = roleLogic.pos;
+            GameUtils.ShowLog(string.Format("我{0},初始位置在<{1}>了", Name, pos));
+            fSpeed = GameCalculate.GetRoleSpeed(roleLogic);
         }
 
         public override void Update()
         {
             base.Update();
+            var posL = roleLogic.pos;
+            if (pos != posL)
+            {
+                if (Vector3.Distance(pos, posL) < fSpeed)
+                {
+                    pos = posL;
+                }
+                else
+                {
+                    var dir = (posL - pos).normalized;
+                    pos = dir * fSpeed + pos;
+                }
+                GameUtils.ShowLog(string.Format("我{0},已经到了<{1}>了", Name, pos));
+            }
         }
     }
 }

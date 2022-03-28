@@ -28,7 +28,12 @@ namespace WP
             {
                 roleLogic.pos = new Vector3(pos.x + speed, pos.y);
             }
-            GameUtils.ShowLog(string.Format("动了，他动了，{1}要到到<{0}>去了", roleLogic.pos, roleLogic.id));
+            GameUtils.ShowLog(string.Format("动了，他动了，{1}要到<{0}>去了", roleLogic.pos, roleLogic.id));
+        }
+
+        public static float GetRoleSpeed(RoleLogic roleLogic)
+        {
+            return (float)roleLogic.FootStrength / (GameConst.MaxStrength + 1) / 50;
         }
     }
 }

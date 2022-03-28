@@ -94,7 +94,6 @@ namespace WP
             base.Init(id);
             GameUtils.ShowLog(string.Format("我是一个Role, 我出生了, 我是第{0}个出生的实体", id));
             viewEntity = EntityManager.Instance.MakeEntity<RoleView>();
-            
         }
 
         public virtual void Update()
@@ -117,6 +116,7 @@ namespace WP
         //属性设置完毕，开始进入Idle状态
         public void Ready()
         {
+            viewEntity.SetLogic(this);
             var idle = ObjectPool<RoleIdleState>.Instance.Get();
             idle.roleLogic = this;
             State = idle;
