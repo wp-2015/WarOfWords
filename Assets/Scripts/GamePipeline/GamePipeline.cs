@@ -45,30 +45,35 @@ namespace WP
                 {GamePipelineStep.CreateRole, new GamePipelineCreateRole()},
             };
 
-        private GamePipelineReplaceGUI monoGUI;
-        public void EnterPipeline(GamePipelineReplaceGUI monoGUI)
+        public void EnterPipeline()
         {
-            this.monoGUI = monoGUI;
-            dicPipeline[currentPipeline].Enter(monoGUI);
-            currentPipeline++;
+            dicPipeline[currentPipeline].Enter();
         }
 
         public void UpdatePipeline()
         {
-            dicPipeline[currentPipeline].Enter(monoGUI);
-            currentPipeline++;
+            dicPipeline[currentPipeline++].Leave();
+            dicPipeline[currentPipeline].Enter();
         }
     }
 
     public class GamePipelineBase
     {
-        public virtual void Enter(GamePipelineReplaceGUI monoGUI)
+        public virtual void Enter()
         {
-            monoGUI.actionGUI = Draw;
+            UIManager.Instance.cbShow = Draw;
         }
 
         public virtual void Draw()
         {
+        }
+
+        public virtual void Leave()
+        {
+            if(UIManager.Instance.cbShow == Draw)
+            {
+                UIManager.Instance.cbShow = null;
+            }
         }
     }
 
@@ -157,10 +162,8 @@ namespace WP
 
     public class GamePipelineCreateRole : GamePipelineBase
     {
-        public override void Enter(GamePipelineReplaceGUI monoGUI)
+        public override void Enter()
         {
-            base.Enter(monoGUI);
-            
             var pipeline = GamePipelineManager.Instance;
             string szLog = string.Format("嘿, 你刚刚创建一个角色的数据，他叫:{0}, 脸部:{1}, 声线:{2}, 身体:{3}, 手部:{4}, 脚:{5}。下面我们将会创建这个角色!",
                 pipeline.name, pipeline.faceStrength, pipeline.voiceStrength, pipeline.bodyStrength, 

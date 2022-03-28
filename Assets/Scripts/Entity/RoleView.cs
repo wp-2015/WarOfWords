@@ -23,7 +23,7 @@ namespace WP
 
         public BodyInfo FaceInfo
         {
-            get { return bodyInfo;}
+            get { return faceInfo; }
             set
             {
                 faceInfo = value;

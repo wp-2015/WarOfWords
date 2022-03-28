@@ -5,8 +5,6 @@ using WP;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public GamePipelineReplaceGUI actionGUI = new GamePipelineReplaceGUI();
-
     private void Awake()
     {
         GameEntry.Instance.Init();
@@ -14,12 +12,12 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void Start()
     {
-        GamePipelineManager.Instance.EnterPipeline(actionGUI);
+        GamePipelineManager.Instance.EnterPipeline();
     }
 
     private void OnGUI()
     {
-        actionGUI.actionGUI?.Invoke();
+        UIManager.Instance.cbShow?.Invoke();
         // if(GUILayout.Button("创建主角"))
         // {
         //     GameEntry.Instance.MakeRole();
