@@ -6,7 +6,17 @@ namespace WP
     {
         public long id;
         public Vector3 pos;
-        public BaseState state;
+
+        private BaseState baseState;
+        public BaseState State 
+        {
+            get{return baseState;}
+            set
+            {
+                baseState?.Leave();
+                baseState = value;
+            }
+        }
 
         public virtual void Init(long id)
         {
@@ -15,7 +25,12 @@ namespace WP
 
         public virtual void Update()
         {
-            state?.Update();
+            State?.Update();
+        }
+
+        public virtual void FixedUpdate()
+        {
+            State?.FixedUpdate();
         }
     }
 }

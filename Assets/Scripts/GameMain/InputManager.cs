@@ -4,13 +4,37 @@ using UnityEngine;
 
 public class InputManager : UnitySingleton<InputManager>
 {
-    public void Update()
+    public static KeyCode CheckMoveKey()
     {
-        
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            return KeyCode.W;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            return KeyCode.S;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            return KeyCode.A;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            return KeyCode.D;
+        }
+        return KeyCode.None;
     }
 
-    public void ReleaseSkill(int skillID)
+    public static KeyCode CheckSkillKey()
     {
-
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            return KeyCode.J;
+        }
+        else if (Input.GetKey(KeyCode.K))
+        {
+            return KeyCode.S;
+        }
+        return KeyCode.None;
     }
 }

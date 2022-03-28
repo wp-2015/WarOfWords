@@ -113,5 +113,13 @@ namespace WP
             }
             EntityManager.Instance.Release<RoleView>(viewEntity);
         }
+
+        //属性设置完毕，开始进入Idle状态
+        public void Ready()
+        {
+            var idle = ObjectPool<RoleIdleState>.Instance.Get();
+            idle.roleLogic = this;
+            State = idle;
+        }
     }
 }

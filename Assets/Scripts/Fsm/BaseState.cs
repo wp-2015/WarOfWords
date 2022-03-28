@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace WP
 {
-    public abstract class BaseState
+    public class BaseState : PoolObj
     {
-        public abstract void Enter();
-        public abstract void Update();
-        public abstract void Leave();
+        public virtual void Enter() { }
+        public virtual void Update() { }
+        public virtual void Leave() { }
+        public virtual void FixedUpdate() { }
     }
 }

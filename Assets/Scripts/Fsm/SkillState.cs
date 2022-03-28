@@ -16,5 +16,10 @@
         {
             
         }
+
+        public override void FixedUpdate()
+        {
+
+        }
     }
 }
