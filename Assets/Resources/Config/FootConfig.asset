@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1db96e51ad4e91939a068c221084bd, type: 3}
+  m_Name: FootConfig
+  m_EditorClassIdentifier: 
+  lc:
+  - Strength: 50
+    Des:
+    - "\u6211\u6709\u7406\u7531\u6000\u7591\u8FD9\u811A\u7ECF\u5E38\u8DD1\u9A6C\u62C9\u677E"
+    - "\u56FD\u8DB3\u6709\u8FD9\u811A\uFF0C\u7F51\u90FD\u7ED9\u4ED6\u8E22\u7834\u4E86"
+    Tag:
+    - "\u5F3A\u58EE\u7684\u811A"
+    - "\u6CA7\u6851\u7684\u811A"
+  - Strength: 0
+    Des:
+    - "\u8FD9\u811A\u662F\u4E0D\u662F\u7ECF\u5E38\u505A\u6309\u6469"
+    - "\u662F\u4E0D\u662F\u88F9\u811A\u4E86"
+    Tag:
+    - "\u7EA4\u7EA4\u7389\u811A"
+    - "\u5C0F\u5C0F\u7684\u811A\u4E2B"

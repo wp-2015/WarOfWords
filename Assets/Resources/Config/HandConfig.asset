@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1db96e51ad4e91939a068c221084bd, type: 3}
+  m_Name: HandConfig
+  m_EditorClassIdentifier: 
+  lc:
+  - Strength: 50
+    Des:
+    - "\u5168\u662F\u8001\u8327\uFF0C\u4F46\u5145\u6EE1\u5B89\u5168\u611F"
+    - "\u75A4\u75D5\u904D\u5E03\uFF0C\u5145\u6EE1\u5C81\u6708\u7684\u6C14\u606F"
+    - "\u9752\u7B4B\u66B4\u8D77\uFF0C\u4E00\u5DF4\u638C\u4E0B\u53BB\uFF0C\u5BF9\u9762\u6307\u5B9A\u84B8\u53D1\u4E86"
+    Tag:
+    - "\u6CA7\u6851\u7684\u5927\u624B"
+    - "\u5F3A\u58EE\u7684\u5927\u624B"
+  - Strength: 0
+    Des:
+    - "\u767D\u767D\u5AE9\u5AE9\uFF0C\u4E0D\u7EC3\u4E5D\u9634\u771F\u7ECF\u8840\u4E8F"
+    - "\u7EA4\u7EA4\u7389\u6307\uFF0C\u662F\u4E0D\u662F\u952E\u76D8\u6253\u591A\u4E86\uFF0C\u8FD9\u4E2A\u952E\u76D8\u4FA0"
+    Tag:
+    - "\u7EA4\u7EA4\u7389\u6307"
+    - "\u67D4\u5F31\u7684\u5C0F\u624B"
+    - "\u65E0\u9AA8\u7684\u5C0F\u624B"
