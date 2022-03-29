@@ -7,9 +7,8 @@ using UnityEngine;
 
 namespace WP
 {
-    public class MoveStateUpdateInput : BaseState
+    public class MoveStateUpdateInput : RoleState
     {
-        public RoleLogic roleLogic;
         public KeyCode InputKeyCode = KeyCode.None;
 
         private float speed;

@@ -1,25 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace WP
 {
-    public abstract class SkillEffectBase
+    public enum SkillEffectType
     {
-        public int delayTimeMillisecond;
-        public int delayTimeStartMillisecond;
+        None,
+        AudioPlay,
+        Animation,
+        Effect,
+    }
+    public class SkillEffectBase
+    {
+        
+    }
 
-        public void Init()
-        {
-            delayTimeStartMillisecond = GameUtils.GetNowMillisecond();
-        }
+    public class AudioSkillEffect : SkillEffectBase
+    {
+        public string name;
+    }
 
-        public void Update()
-        {
-            if(GameUtils.GetNowMillisecond() - delayTimeStartMillisecond < delayTimeMillisecond)
-                Play();
-        }
+    public class AnimationSkillEffect : SkillEffectBase
+    {
+        public string name;
+    }
 
-        public abstract void Play();
+    public class EffectSkillEffect : SkillEffectBase
+    {
+        public string prefabPath;
+        public bool bIsWorld;//是否是在世界放置，还是在身上放置
     }
 }

@@ -7,9 +7,8 @@ using UnityEngine;
 
 namespace WP
 {
-    public class RoleIdleState : BaseState
+    public class RoleIdleState : RoleState
     {
-        public RoleLogic roleLogic;
         public override void Enter()
         {
             EntityState = EntityState.RoleIdle;
