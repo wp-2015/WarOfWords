@@ -96,7 +96,7 @@ namespace WP
             viewEntity = EntityManager.Instance.MakeEntity<RoleView>();
         }
 
-        public virtual void Update()
+        public override void Update()
         {
             base.Update();
             viewEntity.Update();
