@@ -7,21 +7,21 @@ namespace WP
     public class SkillStepCellBase
     {
         public int delayTimeMillisecond;
-        public int delayTimeStartMillisecond;
-
-        public void Init()
-        {
-            delayTimeStartMillisecond = GameUtils.GetNowMillisecond();
-        }
-
-        public void Update()
-        {
-            if(GameUtils.GetNowMillisecond() - delayTimeStartMillisecond < delayTimeMillisecond)
-                Play();
-        }
-
-        public void Play()
-        {
-        }
+        // public int delayTimeStartMillisecond;
+        //
+        // public void Init()
+        // {
+        //     delayTimeStartMillisecond = GameUtils.GetNowMillisecond();
+        // }
+        //
+        // public void Update()
+        // {
+        //     if(GameUtils.GetNowMillisecond() - delayTimeStartMillisecond < delayTimeMillisecond)
+        //         Play();
+        // }
+        //
+        // public void Play()
+        // {
+        // }
     }
 }
