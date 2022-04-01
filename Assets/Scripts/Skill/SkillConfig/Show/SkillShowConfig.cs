@@ -26,7 +26,12 @@ namespace WP
     [Serializable]
     public class SkillShowStep
     {
+        public List<SkillEffectBase> lEffectsInSaving = new List<SkillEffectBase>();
         [HideInInspector]
-        public List<SkillEffectBase> lAllSkillEffect = new List<SkillEffectBase>();
+        public List<SkillEffectBase> lAllSkillEffectInPlaying = new List<SkillEffectBase>();
+        public void SkillLoadConfig()
+        {
+
+        }
     }
 }

@@ -23,5 +23,9 @@ namespace WP
         // public void Play()
         // {
         // }
+        public virtual void Enter()
+        { }
+        public virtual void Update()
+        { }
     }
 }

@@ -1,15 +1,13 @@
-using WP.OtherConfig;
-
-namespace Utils
+namespace WP
 {
-    public static class GameConfigs
+    public class BodyConfigManager: Singleton_CSharp<BodyConfigManager>
     {
-        public static BodyConfig bodyConfig;
-        public static BodyConfig faceConfig;
-        public static BodyConfig voiceConfig;
-        public static BodyConfig handConfig;
-        public static BodyConfig footConfig;
-        public static void Init()
+        public BodyConfig bodyConfig;
+        public BodyConfig faceConfig;
+        public BodyConfig voiceConfig;
+        public BodyConfig handConfig;
+        public BodyConfig footConfig;
+        public void Init()
         {
             bodyConfig = GameUtils.LoadAsset<BodyConfig>(GameConst.BodyConfigPath);
             faceConfig = GameUtils.LoadAsset<BodyConfig>(GameConst.FaceConfigPath);

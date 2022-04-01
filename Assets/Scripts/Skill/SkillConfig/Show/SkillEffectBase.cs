@@ -9,5 +9,6 @@ namespace WP
     {
         public SkillEffectType type;
         public int id;
+
     }
 }

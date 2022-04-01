@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WP.OtherConfig
+namespace WP
 {
     [CreateAssetMenu(fileName = "CustomScriptableObject", menuName = "CustomConfig/BodyConfig")]
     public class BodyConfig : ScriptableObject

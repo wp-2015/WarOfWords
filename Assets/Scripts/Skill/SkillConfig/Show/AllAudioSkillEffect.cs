@@ -11,6 +11,12 @@ namespace WP
     public class AudioSkillEffect : SkillEffectBase
     {
         public string audioName;
+
+        public override void Enter()
+        {
+            base.Enter();
+            GameUtils.ShowLog(string.Format("播放了一个音效:{0}", audioName));
+        }
     }
     [CreateAssetMenu(fileName = "AllAudioSkillEffect", menuName = "CustomConfig/AllAudioSkillEffect")]
     public class AllAudioSkillEffect : ScriptableObject

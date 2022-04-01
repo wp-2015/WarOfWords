@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using WP.OtherConfig;
 
 public static class GameConst
 {
@@ -26,4 +25,10 @@ public static class GameConst
     public static string VoiceConfigPath = "Config/VoiceConfig";
     public static string HandConfigPath = "Config/HandConfig";
     public static string FootConfigPath = "Config/FootConfig";
+
+    public static string SkillShowConfig = "SkillConfig/SkillShow/SkillShowConfig";
+    public static string AllAudioSkillEffect = "SkillConfig/SkillShow/AllAudioSkillEffect";
+    public static string AllAnimationSkillEffect = "SkillConfig/AllSkillShow/AnimationSkillEffect";
+    public static string AllEffectSkillEffect = "SkillConfig/SkillShow/AllEffectSkillEffect";
+
 }

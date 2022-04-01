@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using Utils;
-using WP.OtherConfig;
 
 namespace WP
 {
@@ -9,7 +7,7 @@ namespace WP
     {
         public void Init()
         {
-            GameConfigs.Init();
+            BodyConfigManager.Instance.Init();
         }
 
         public void Update()

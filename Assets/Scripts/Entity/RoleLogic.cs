@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Utils;
 
 namespace WP
 {
@@ -12,8 +11,8 @@ namespace WP
             set
             {
                 bodyStrength = value;
-                var bc = GameConfigs.bodyConfig;
-                var level = GameUtils.GetStrengetStep(bc, value);
+                var bc = BodyConfigManager.Instance.bodyConfig;
+                var level = GetStrengetStep(bc, value);
                 viewEntity.BodyInfo = bc.lc[level];
             }
         }
@@ -26,8 +25,8 @@ namespace WP
             set
             {
                 faceStrength = value;
-                var bc = GameConfigs.faceConfig;
-                var level = GameUtils.GetStrengetStep(bc, value);
+                var bc = BodyConfigManager.Instance.faceConfig;
+                var level = GetStrengetStep(bc, value);
                 viewEntity.FaceInfo = bc.lc[level];
             }
         }
@@ -41,8 +40,8 @@ namespace WP
             set
             {
                 voiceStrength = value;
-                var bc = GameConfigs.voiceConfig;
-                var level = GameUtils.GetStrengetStep(bc, value);
+                var bc = BodyConfigManager.Instance.voiceConfig;
+                var level = GetStrengetStep(bc, value);
                 viewEntity.VoiceInfo = bc.lc[level];
             }
         }
@@ -55,8 +54,8 @@ namespace WP
             set
             {
                 handStrength = value;
-                var bc = GameConfigs.handConfig;
-                var level = GameUtils.GetStrengetStep(bc, value);
+                var bc = BodyConfigManager.Instance.handConfig;
+                var level = GetStrengetStep(bc, value);
                 viewEntity.HandInfo = bc.lc[level];
             }
         }
@@ -69,8 +68,8 @@ namespace WP
             set
             {
                 footStrength = value;
-                var bc = GameConfigs.footConfig;
-                var level = GameUtils.GetStrengetStep(bc, value);
+                var bc = BodyConfigManager.Instance.footConfig;
+                var level = GetStrengetStep(bc, value);
                 viewEntity.FootInfo = bc.lc[level];
             }
         }
@@ -120,6 +119,19 @@ namespace WP
             var idle = ObjectPool<RoleIdleState>.Instance.Get();
             idle.roleLogic = this;
             State = idle;
+        }
+
+        public int GetStrengetStep(BodyConfig bc, int strength)
+        {
+            var lc = bc.lc;
+            for (int i = 0; i < lc.Count; i++)
+            {
+                if (strength >= lc[i].Strength)
+                {
+                    return i;
+                }
+            }
+            return lc.Count - 1;
         }
     }
 }
