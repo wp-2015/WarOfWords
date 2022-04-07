@@ -12,9 +12,8 @@ namespace WP
     {
         public string audioName;
 
-        public override void Enter()
+        public override void Play(RoleView roleView)
         {
-            base.Enter();
             GameUtils.ShowLog(string.Format("播放了一个音效:{0}", audioName));
         }
     }

@@ -5,10 +5,15 @@ using UnityEngine;
 namespace WP
 {
     [Serializable]
-    public class SkillEffectBase : SkillStepCellBase
+    public class SkillEffectBase
     {
-        public SkillEffectType type;
+        public RoleView roleView;
         public int id;
-
+        public int delayTimeMillisecond;
+        
+        public virtual void Play(RoleView roleView)
+        { }
+        public virtual void Update()
+        { }
     }
 }

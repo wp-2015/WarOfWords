@@ -6,7 +6,6 @@ namespace WP
 {
     public class SkillStepCellBase
     {
-        public int delayTimeMillisecond;
         // public int delayTimeStartMillisecond;
         //
         // public void Init()
@@ -23,9 +22,5 @@ namespace WP
         // public void Play()
         // {
         // }
-        public virtual void Enter()
-        { }
-        public virtual void Update()
-        { }
     }
 }

@@ -45,7 +45,7 @@ namespace WP
             }
         }
 
-        public Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>> LoadEffects()
+        private Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>> LoadEffects()
         {
             Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>> dicAllEffects = new Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>>();
             var effects = GameUtils.LoadAsset<AllEffectSkillEffect>(GameConst.AllEffectSkillEffect);

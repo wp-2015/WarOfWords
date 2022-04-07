@@ -22,16 +22,20 @@ namespace WP
         public int id;//技能ID
         public List<SkillShowStep> lAllSkillShowStep = new List<SkillShowStep>();
     }
+    
+    [Serializable]
+    public class SkillEffectItem
+    {
+        public SkillEffectType type;
+        public int id;
+    }
 
     [Serializable]
     public class SkillShowStep
     {
-        public List<SkillEffectBase> lEffectsInSaving = new List<SkillEffectBase>();
+        public float time;//持续时间
+        public List<SkillEffectItem> lEffectsInSaving = new List<SkillEffectItem>();
         [HideInInspector]
         public List<SkillEffectBase> lAllSkillEffectInPlaying = new List<SkillEffectBase>();
-        public void SkillLoadConfig()
-        {
-
-        }
     }
 }

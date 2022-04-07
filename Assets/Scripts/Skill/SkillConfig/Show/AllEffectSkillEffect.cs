@@ -13,9 +13,8 @@ namespace WP
         public string prefabPath;
         public bool bIsWorld;//是否是在世界放置，还是在身上放置
 
-        public override void Enter()
+        public override void Play(RoleView roleView)
         {
-            base.Enter();
             if(bIsWorld)
             {
                 GameUtils.ShowLog(string.Format("随手把一个{0},放在了地上"));

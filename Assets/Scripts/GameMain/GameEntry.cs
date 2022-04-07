@@ -8,6 +8,7 @@ namespace WP
         public void Init()
         {
             BodyConfigManager.Instance.Init();
+            SkillEffectManager.Instance.LoadConfig();
         }
 
         public void Update()

@@ -11,7 +11,7 @@ namespace WP
     public class AnimationSkillEffect : SkillEffectBase
     {
         public string aniName;
-        public override void Enter()
+        public override void Play(RoleView roleView)
         {
             GameUtils.ShowLog(string.Format("切换了一个动作{0}", aniName));
         }
