@@ -59,6 +59,13 @@ namespace WP
             dicPipeline[currentPipeline].Enter();
         }
 
+        public void JumpToTargetPipeline(GamePipelineStep step)
+        {
+            dicPipeline[currentPipeline].Leave();
+            currentPipeline = step;
+            dicPipeline[currentPipeline].Enter();
+        }
+
         public void Update()
         {
             dicPipeline[currentPipeline].Update();

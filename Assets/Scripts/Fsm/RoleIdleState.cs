@@ -11,8 +11,15 @@ namespace WP
     {
         public override void Enter()
         {
+            base.Enter();
             EntityState = EntityState.RoleIdle;
             GameUtils.ShowLog(string.Format("我{0}现在可要待机了嗷, 摇起来", roleLogic.Name));
+        }
+
+        protected override void InitState()
+        {
+            canMove = true;
+            canSkill = true;
         }
     }
 }

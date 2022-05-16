@@ -14,10 +14,17 @@ namespace WP
         private float speed;
         public override void Enter()
         {
+            base.Enter();
             EntityState = EntityState.MoveUpdateInput;
             var strength = roleLogic.FootStrength;
             speed = GameCalculate.GetRoleSpeed(roleLogic);
             GameCalculate.MoveCalculate(roleLogic, InputKeyCode, speed);
+        }
+
+        protected override void InitState()
+        {
+            canMove = true;
+            canSkill = true;
         }
 
         public override void Update()

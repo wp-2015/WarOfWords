@@ -19,13 +19,13 @@ public class SkillEditor : EditorWindow
         window.Show();
     }
 
-    private SkillShowConfig skillShowConfig;
+    private SkillConfig skillShowConfig;
     private AllAudioSkillEffect allAudioSkillEffect;
     private AllAnimationSkillEffect allAnimationSkillEffect;
     private AllEffectSkillEffect allEffectSkillEffect;
     private void OnEnable()
     {
-        skillShowConfig = AssetDatabase.LoadAssetAtPath<SkillShowConfig>("Assets/Resources/SkillConfig/SkillShow/SkillShowConfig.asset");
+        skillShowConfig = AssetDatabase.LoadAssetAtPath<SkillConfig>("Assets/Resources/SkillConfig/SkillShow/SkillShowConfig.asset");
         allAudioSkillEffect = AssetDatabase.LoadAssetAtPath<AllAudioSkillEffect>("Assets/Resources/SkillConfig/SkillShow/AllAudioSkillEffect.asset");
         allAnimationSkillEffect = AssetDatabase.LoadAssetAtPath<AllAnimationSkillEffect>("Assets/Resources/SkillConfig/AllSkillShow/AnimationSkillEffect.asset");
         allEffectSkillEffect = AssetDatabase.LoadAssetAtPath<AllEffectSkillEffect>("Assets/Resources/SkillConfig/SkillShow/AllEffectSkillEffect.asset");

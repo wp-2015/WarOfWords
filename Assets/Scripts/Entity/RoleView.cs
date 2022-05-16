@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -64,6 +65,13 @@ namespace WP
                 footInfo = value;
                 SetStrength(value);
             }
+        }
+        
+        public List<ulong> lTimeEventToDO = new List<ulong>();
+
+        public void AddTimeEventToDo(ulong id)
+        {
+            lTimeEventToDO.Add(id);
         }
 
         private void SetStrength(BodyInfo bi)

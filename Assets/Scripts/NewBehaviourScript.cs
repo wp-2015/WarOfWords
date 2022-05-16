@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using WP;
@@ -33,5 +34,6 @@ public class NewBehaviourScript : MonoBehaviour
     {
         GamePipelineManager.Instance.Update();
         GameEntry.Instance.Update();
+        TimeHandleManager.Instance.Update();
     }
 }

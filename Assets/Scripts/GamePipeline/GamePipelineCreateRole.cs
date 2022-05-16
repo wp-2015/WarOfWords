@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Random = System.Random;
 
 namespace WP
 {
@@ -31,6 +32,19 @@ namespace WP
             if (GUILayout.Button("创建名字完毕"))
             {
                 GamePipelineManager.Instance.UpdatePipeline();
+            }
+            
+
+            if (GUILayout.Button("随机创建"))
+            {
+                UnityEngine.Random.InitState(DateTime.Now.Millisecond);
+                GamePipelineManager.Instance.name = "张三";
+                GamePipelineManager.Instance.faceStrength = UnityEngine.Random.Range(0, GameConst.MaxStrength);
+                GamePipelineManager.Instance.voiceStrength = UnityEngine.Random.Range(0, GameConst.MaxStrength);
+                GamePipelineManager.Instance.bodyStrength = UnityEngine.Random.Range(0, GameConst.MaxStrength);
+                GamePipelineManager.Instance.handStrength = UnityEngine.Random.Range(0, GameConst.MaxStrength);
+                GamePipelineManager.Instance.footStrength = UnityEngine.Random.Range(0, GameConst.MaxStrength);
+                GamePipelineManager.Instance.JumpToTargetPipeline(GamePipelineStep.CreateRole);
             }
         }
     }
@@ -102,7 +116,6 @@ namespace WP
             GameUtils.ShowLog(szLog);
 
             var role = EntityManager.Instance.MakeEntity<RoleLogic>();
-            GameAllInfo.SelfRole = role;
             GameUtils.ShowLog("下面我来自我介绍一下");
             role.Name = pipeline.name;
             role.BodyStrength = pipeline.bodyStrength;
@@ -111,6 +124,7 @@ namespace WP
             role.HandStrength = pipeline.handStrength;
             role.FootStrength = pipeline.footStrength;
             role.Ready();
+            GameAllInfo.SelfRole = role;
             GamePipelineManager.Instance.UpdatePipeline();
         }
     }

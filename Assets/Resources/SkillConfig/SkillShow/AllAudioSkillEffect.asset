@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5d7a5b73fb3a846bd714da8b1c4078, type: 3}
   m_Name: AllAudioSkillEffect
   m_EditorClassIdentifier: 
-  lAllSkill: []
+  lAllSkill:
+  - id: 0
+    delayTimeMillisecond: 0
+    audioName: 

@@ -20,15 +20,18 @@ public static class GameConst
 
     public const int MaxStrength = 99;
 
-    public static string BodyConfigPath = "Config/BodyConfig";
-    public static string FaceConfigPath = "Config/FaceConfig";
-    public static string VoiceConfigPath = "Config/VoiceConfig";
-    public static string HandConfigPath = "Config/HandConfig";
-    public static string FootConfigPath = "Config/FootConfig";
+    public const string BodyConfigPath = "Config/BodyConfig";
+    public const string FaceConfigPath = "Config/FaceConfig";
+    public const string VoiceConfigPath = "Config/VoiceConfig";
+    public const string HandConfigPath = "Config/HandConfig";
+    public const string FootConfigPath = "Config/FootConfig";
 
-    public static string SkillShowConfig = "SkillConfig/SkillShow/SkillShowConfig";
-    public static string AllAudioSkillEffect = "SkillConfig/SkillShow/AllAudioSkillEffect";
-    public static string AllAnimationSkillEffect = "SkillConfig/AllSkillShow/AnimationSkillEffect";
-    public static string AllEffectSkillEffect = "SkillConfig/SkillShow/AllEffectSkillEffect";
+    public const string SkillConfig = "SkillConfig/SkillConfig";
+    
+    public const string AllAudioSkillEffect = "SkillConfig/SkillShow/AllAudioSkillEffect";
+    public const string AllAnimationSkillEffect = "SkillConfig/SkillShow/AllAnimationSkillEffect";
+    public const string AllEffectSkillEffect = "SkillConfig/SkillShow/AllEffectSkillEffect";
 
+    public const string AllLogicBlink = "SkillConfig/SkillLogic/AllLogicBlink";
+    public const string AllLogicDamage = "SkillConfig/SkillLogic/AllLogicDamage";
 }

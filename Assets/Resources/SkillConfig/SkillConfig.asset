@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd28dc9cd8914047bd42a6a20b6d008, type: 3}
+  m_Name: SkillConfig
+  m_EditorClassIdentifier: 
+  lAllSkill:
+  - name: "\u7B2C\u4E00\u4E2A\u6280\u80FD"
+    id: 0
+    lAllSkillStep:
+    - time: 4000
+      lEffectsInSaving:
+      - type: 2
+        id: 0
+      lAllSkillEffectInPlaying: []
+      lLogicsInSaving:
+      - type: 1
+        id: 0
+      lAllSkillLogicInPlaying: []

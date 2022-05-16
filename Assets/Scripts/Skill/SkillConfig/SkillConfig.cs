@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace WP
 {
-    //技能配置
-    //一个技能有很多阶段
-    //一个阶段有很多表现来组合
-    //SkillShowConfig   SkillInfo   SkillShowStep
-
     [CreateAssetMenu(fileName = "CustomScriptableObject", menuName = "CustomConfig/SkillShowConfig")]
-    public class SkillShowConfig : ScriptableObject
+    public class SkillConfig : ScriptableObject
     {
         public List<SkillInfo> lAllSkill = new List<SkillInfo>();
     }
@@ -20,7 +16,7 @@ namespace WP
     {
         public string name;
         public int id;//技能ID
-        public List<SkillShowStep> lAllSkillShowStep = new List<SkillShowStep>();
+        public List<SkillStep> lAllSkillStep = new List<SkillStep>();
     }
     
     [Serializable]
@@ -31,11 +27,25 @@ namespace WP
     }
 
     [Serializable]
-    public class SkillShowStep
+    public class SkillLogicItem
+    {
+        public SkillLogicType type;
+        public int id;
+    }
+
+    [Serializable]
+    public class SkillStep
     {
         public float time;//持续时间
+        
+        //view
         public List<SkillEffectItem> lEffectsInSaving = new List<SkillEffectItem>();
         [HideInInspector]
         public List<SkillEffectBase> lAllSkillEffectInPlaying = new List<SkillEffectBase>();
+        
+        //logic
+        public List<SkillLogicItem> lLogicsInSaving = new List<SkillLogicItem>();
+        [HideInInspector]
+        public List<SkillLogicBase> lAllSkillLogicInPlaying = new List<SkillLogicBase>();
     }
 }

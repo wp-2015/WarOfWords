@@ -13,8 +13,9 @@ namespace WP
         public string prefabPath;
         public bool bIsWorld;//是否是在世界放置，还是在身上放置
 
-        public override void Play(RoleView roleView)
+        protected override void Execute(RoleView roleView)
         {
+            base.Execute(roleView);
             if(bIsWorld)
             {
                 GameUtils.ShowLog(string.Format("随手把一个{0},放在了地上"));
@@ -23,6 +24,16 @@ namespace WP
             {
                 GameUtils.ShowLog(string.Format(""));
             }
+        }
+
+        public override SkillEffectBase Copy()
+        {
+            base.Copy();
+            var res = new EffectSkillEffect();
+            FillNewInstance(res);
+            res.prefabPath = prefabPath;
+            res.bIsWorld = bIsWorld;
+            return res;
         }
     }
 

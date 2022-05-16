@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace WP
 {
@@ -88,11 +89,21 @@ namespace WP
         }
         
         public RoleView viewEntity;
+        //TODO:当被打断技能时候，需要把逻辑和表现队列中的已经排序需要做的事情清空
+        public List<ulong> lTimeEventToDo = new List<ulong>();
+
+        public void AddTimeEventToDo(ulong id)
+        {
+            lTimeEventToDo.Add(id);
+        }
+
         public override void Init(long id)
         {
             base.Init(id);
             GameUtils.ShowLog(string.Format("我是一个Role, 我出生了, 我是第{0}个出生的实体", id));
             viewEntity = EntityManager.Instance.MakeEntity<RoleView>();
+            viewEntity.lTimeEventToDO.Clear();
+            lTimeEventToDo.Clear();
         }
 
         public override void Update()

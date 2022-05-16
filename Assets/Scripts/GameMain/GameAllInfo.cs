@@ -14,7 +14,7 @@ namespace WP
             set
             {
                 selfRole = value;
-                GameUtils.ShowLog(string.Format("系统:现在已经设置了主角了，他的ID是：{0}", selfRole.id));
+                GameUtils.ShowLog(string.Format("系统:现在你可以控制代号{0}了", selfRole.id));
             }
             get
             {

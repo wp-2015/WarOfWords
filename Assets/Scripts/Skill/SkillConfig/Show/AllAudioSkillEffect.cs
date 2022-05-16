@@ -12,9 +12,18 @@ namespace WP
     {
         public string audioName;
 
-        public override void Play(RoleView roleView)
+        protected override void Execute(RoleView roleView)
         {
+            base.Execute(roleView);
             GameUtils.ShowLog(string.Format("播放了一个音效:{0}", audioName));
+        }
+
+        public override SkillEffectBase Copy()
+        {
+            AudioSkillEffect res = new AudioSkillEffect();
+            FillNewInstance(res);
+            res.audioName = this.audioName;
+            return res;
         }
     }
     [CreateAssetMenu(fileName = "AllAudioSkillEffect", menuName = "CustomConfig/AllAudioSkillEffect")]

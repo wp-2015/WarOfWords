@@ -11,9 +11,19 @@ namespace WP
     public class AnimationSkillEffect : SkillEffectBase
     {
         public string aniName;
-        public override void Play(RoleView roleView)
+
+        protected override void Execute(RoleView roleView)
         {
+            base.Execute(roleView);
             GameUtils.ShowLog(string.Format("切换了一个动作{0}", aniName));
+        }
+
+        public override SkillEffectBase Copy()
+        {
+            AnimationSkillEffect res = new AnimationSkillEffect();
+            FillNewInstance(res);
+            res.aniName = this.aniName;
+            return res;
         }
     }
     [CreateAssetMenu(fileName = "AllAnimationSkillEffect", menuName = "CustomConfig/AllAnimationSkillEffect")]
