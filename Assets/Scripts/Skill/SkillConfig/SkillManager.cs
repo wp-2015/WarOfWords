@@ -6,20 +6,23 @@ namespace WP
     public class SkillManager : Singleton_CSharp<SkillManager>
     {
         public Dictionary<int, SkillInfo> dicSkillConfig = new Dictionary<int, SkillInfo>();
+        public Dictionary<int, SkillInfo> dicBuffConfig = new Dictionary<int, SkillInfo>();
 
-        public SkillInfo GetSkillInfo(int id)
-        {
-            if(dicSkillConfig.TryGetValue(id, out SkillInfo res))
-                return res;
-            return null;
-        }
         
         public void LoadConfig()
         {
             var dicAllEffects = LoadEffects();
             var dicAllLogics = LoadLogics();
-
             var skillConfig = GameUtils.LoadAsset<SkillConfig>(GameConst.SkillConfig);
+            var buffConfig = GameUtils.LoadAsset<SkillConfig>(GameConst.BuffConfig);
+            LoadSkillConfig(dicAllLogics, dicAllEffects, dicSkillConfig, skillConfig);
+            LoadSkillConfig(dicAllLogics, dicAllEffects, dicBuffConfig, buffConfig);
+        }
+        public void LoadSkillConfig(Dictionary<SkillLogicType, Dictionary<int, SkillLogicBase>> dicAllLogics,
+        Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>> dicAllEffects,
+        Dictionary<int, SkillInfo> dicSkillConfig, SkillConfig skillConfig)
+        {
+            //var skillConfig = GameUtils.LoadAsset<SkillConfig>(GameConst.SkillConfig);
             var allSkillInfo = skillConfig.lAllSkill;
             foreach(var skillInfo in allSkillInfo)
             {
@@ -70,6 +73,20 @@ namespace WP
                 }
             }
         }
+        
+        public SkillInfo GetSkillInfo(int id)
+        {
+            if(dicSkillConfig.TryGetValue(id, out SkillInfo res))
+                return res;
+            return null;
+        }
+
+        public SkillInfo GetBuffInfo(int id)
+        {
+            if(dicBuffConfig.TryGetValue(id, out SkillInfo res))
+                return res;
+            return null;
+        }
 
         private Dictionary<SkillLogicType, Dictionary<int, SkillLogicBase>> LoadLogics()
         {
@@ -96,7 +113,8 @@ namespace WP
 
         private Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>> LoadEffects()
         {
-            Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>> dicAllEffects = new Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>>();
+            Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>> dicAllEffects = 
+                new Dictionary<SkillEffectType, Dictionary<int, SkillEffectBase>>();
             var effects = GameUtils.LoadAsset<AllEffectSkillEffect>(GameConst.AllEffectSkillEffect);
             var dicEffects = new Dictionary<int, SkillEffectBase>(effects.lAllSkill.Count);
             foreach(var effect in effects.lAllSkill)
@@ -115,7 +133,7 @@ namespace WP
 
             var audios = GameUtils.LoadAsset<AllAudioSkillEffect>(GameConst.AllAudioSkillEffect);
             dicEffects = new Dictionary<int, SkillEffectBase>(audios.lAllSkill.Count);
-            foreach (var effect in anis.lAllSkill)
+            foreach (var effect in audios.lAllSkill)
             {
                 dicEffects[effect.id] = effect;
             }

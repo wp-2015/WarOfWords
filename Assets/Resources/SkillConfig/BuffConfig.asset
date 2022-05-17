@@ -10,49 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fd28dc9cd8914047bd42a6a20b6d008, type: 3}
-  m_Name: SkillConfig
+  m_Name: BuffConfig
   m_EditorClassIdentifier: 
   lAllSkill:
-  - name: "\u82F1\u96C4\u767B\u573A"
+  - name: "\u51FB\u98DE"
     id: 0
     lAllSkillStep:
-    - time: 4000
+    - time: 2000
       lEffectsInSaving:
       - type: 2
-        id: 0
-      - type: 1
-        id: 0
-      lAllSkillEffectInPlaying:
-      - name: 
-        id: 0
-        delayTimeMillisecond: 0
+        id: 2
+      lAllSkillEffectInPlaying: []
       lLogicsInSaving:
       - type: 0
-        id: 0
+        id: 2
       lAllSkillLogicInPlaying:
-      - name: "\u5929\u964D\u6B63\u4E49-\u8D77\u98DE"
-        id: 0
+      - name: "\u51FB\u98DE-\u4E0A\u5347"
+        id: 2
         delayTimeMillisecond: 0
         lBuffIDs: 
-    - time: 3000
+    - time: 2000
       lEffectsInSaving:
       - type: 2
-        id: 1
-      lAllSkillEffectInPlaying:
-      - name: 
-        id: 1
-        delayTimeMillisecond: 0
+        id: 3
+      lAllSkillEffectInPlaying: []
       lLogicsInSaving:
       - type: 0
-        id: 1
-      - type: 1
-        id: 0
+        id: 3
       lAllSkillLogicInPlaying:
-      - name: "\u5929\u964D\u6B63\u4E49-\u4E0B\u843D"
-        id: 1
+      - name: "\u51FB\u98DE-\u4E0B\u964D"
+        id: 3
         delayTimeMillisecond: 0
         lBuffIDs: 
-      - name: 
-        id: 0
-        delayTimeMillisecond: 2800
-        lBuffIDs: 00000000

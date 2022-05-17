@@ -8,6 +8,7 @@ namespace WP
     public class SkillEffectBase
     {
         public RoleView roleView;
+        public string name;
         public int id;
         public int delayTimeMillisecond;
 
@@ -27,11 +28,6 @@ namespace WP
         }
         public virtual void Update()
         { }
-
-        public virtual SkillEffectBase Copy()
-        {
-            return null;
-        }
         
         protected virtual void FillNewInstance(SkillEffectBase newInstance)
         {

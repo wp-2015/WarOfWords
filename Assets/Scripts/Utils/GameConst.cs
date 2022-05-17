@@ -27,6 +27,7 @@ public static class GameConst
     public const string FootConfigPath = "Config/FootConfig";
 
     public const string SkillConfig = "SkillConfig/SkillConfig";
+    public const string BuffConfig = "SkillConfig/BuffConfig";
     
     public const string AllAudioSkillEffect = "SkillConfig/SkillShow/AllAudioSkillEffect";
     public const string AllAnimationSkillEffect = "SkillConfig/SkillShow/AllAnimationSkillEffect";

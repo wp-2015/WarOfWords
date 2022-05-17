@@ -15,15 +15,8 @@ namespace WP
         protected override void Execute(RoleView roleView)
         {
             base.Execute(roleView);
-            GameUtils.ShowLog(string.Format("切换了一个动作{0}", aniName));
-        }
-
-        public override SkillEffectBase Copy()
-        {
-            AnimationSkillEffect res = new AnimationSkillEffect();
-            FillNewInstance(res);
-            res.aniName = this.aniName;
-            return res;
+            GameUtils.ShowLog(string.Format("只见<color=red>{0}</color>用<color=red>{1}</color>摆出一副<color=red>{2}</color>", 
+                roleView.GetLogic().Name, roleView.GetBodyDes(), aniName));
         }
     }
     [CreateAssetMenu(fileName = "AllAnimationSkillEffect", menuName = "CustomConfig/AllAnimationSkillEffect")]

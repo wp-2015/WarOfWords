@@ -1,33 +1,41 @@
-﻿using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 namespace WP
 {
-    public class SkillState : RoleState
+    public class BuffHandle
     {
-        public int SkillID;
-        
         private int iStepIndex;
         private SkillInfo skillInfo;
         private long stepTimeCount;
         private long preFrameTime;
-        public override void Enter()
+        private RoleLogic roleLogic;
+        private List<ulong> timeHandleIDs = new List<ulong>();
+
+        public void Init(int buffID, RoleLogic roleLogic)
         {
-            base.Enter();
-            EntityState = EntityState.Skilling;
-            skillInfo = SkillManager.Instance.GetSkillInfo(SkillID);
-            GameUtils.ShowLog(String.Format("{0}:看我一招{1}", roleLogic.Name, skillInfo.name));
+            skillInfo = SkillManager.Instance.GetBuffInfo(buffID);
+            this.roleLogic = roleLogic;
             iStepIndex = 0;
             stepTimeCount = 0;
             preFrameTime = GameUtils.GetNowMilliseconds();
+            
             ExcuteCurrentIndex();
         }
 
+        private void Over()
+        {
+            foreach (var id in timeHandleIDs)
+            {
+                TimeHandleManager.Instance.RemoveHandle(id);
+            }
+            roleLogic.RemoveBuff(this);
+        }
+    
         public void ExcuteCurrentIndex()
         {
             if (iStepIndex >= skillInfo.lAllSkillStep.Count)
             {
-                isOver = true;
+                Over();
             }
             else
             {
@@ -45,11 +53,14 @@ namespace WP
                 }
             }
         }
-
-        public override void Update()
+        
+        public void Update()
         {
-            if(isOver || iStepIndex >= skillInfo.lAllSkillStep.Count)
+            if (iStepIndex >= skillInfo.lAllSkillStep.Count)
+            {
+                Over();
                 return;
+            }
             var currentStep = skillInfo.lAllSkillStep[iStepIndex];
             var time = currentStep.time;
             var now = GameUtils.GetNowMilliseconds();
@@ -62,22 +73,6 @@ namespace WP
                 ExcuteCurrentIndex();
             }
         }
-
-        public override void Leave()
-        {
-            
-        }
-
-        public override void FixedUpdate()
-        {
-
-        }
-        
-
-        protected override void InitState()
-        {
-            canMove = false;
-            canSkill = false;
-        }
     }
 }
+

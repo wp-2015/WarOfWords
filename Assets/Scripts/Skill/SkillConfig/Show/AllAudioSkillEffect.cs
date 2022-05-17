@@ -15,17 +15,11 @@ namespace WP
         protected override void Execute(RoleView roleView)
         {
             base.Execute(roleView);
-            GameUtils.ShowLog(string.Format("播放了一个音效:{0}", audioName));
-        }
-
-        public override SkillEffectBase Copy()
-        {
-            AudioSkillEffect res = new AudioSkillEffect();
-            FillNewInstance(res);
-            res.audioName = this.audioName;
-            return res;
+            GameUtils.ShowLog(string.Format("<color=red>{0}</color>用<color=red>{1}</color>说了一声:<color=red>{2}</color>", 
+                roleView.GetLogic().Name, roleView.GetVoiceDes(), audioName));
         }
     }
+    
     [CreateAssetMenu(fileName = "AllAudioSkillEffect", menuName = "CustomConfig/AllAudioSkillEffect")]
     public class AllAudioSkillEffect : ScriptableObject
     {

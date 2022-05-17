@@ -25,6 +25,15 @@ namespace WP
             return entity;
         }
 
+        public List<Entity> GetTypeEntity(string entityTypeName)
+        {
+            if (dicAllEntity.TryGetValue(entityTypeName, out List<Entity> res))
+            {
+                return res;
+            }
+            return null;
+        }
+
         public void Release<T>(T entity) where T : Entity, new()
         {
             var entityTypeName = typeof(T).Name;

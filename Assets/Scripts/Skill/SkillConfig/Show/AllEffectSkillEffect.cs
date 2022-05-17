@@ -25,16 +25,6 @@ namespace WP
                 GameUtils.ShowLog(string.Format(""));
             }
         }
-
-        public override SkillEffectBase Copy()
-        {
-            base.Copy();
-            var res = new EffectSkillEffect();
-            FillNewInstance(res);
-            res.prefabPath = prefabPath;
-            res.bIsWorld = bIsWorld;
-            return res;
-        }
     }
 
     [CreateAssetMenu(fileName = "AllEffectSkillEffect", menuName = "CustomConfig/AllEffectSkillEffect")]

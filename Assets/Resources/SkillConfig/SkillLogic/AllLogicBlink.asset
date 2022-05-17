@@ -13,5 +13,27 @@ MonoBehaviour:
   m_Name: AllLogicBlink
   m_EditorClassIdentifier: 
   lAllSkill:
-  - delayTimeMillisecond: 2
-    dis: 10
+  - name: "\u5929\u964D\u6B63\u4E49-\u8D77\u98DE"
+    id: 0
+    delayTimeMillisecond: 0
+    lBuffIDs: 
+    dis: {x: 0, y: 10, z: 0}
+    time: 3900
+  - name: "\u5929\u964D\u6B63\u4E49-\u4E0B\u843D"
+    id: 1
+    delayTimeMillisecond: 0
+    lBuffIDs: 
+    dis: {x: 0, y: -10, z: 0}
+    time: 2800
+  - name: "\u51FB\u98DE-\u4E0A\u5347"
+    id: 2
+    delayTimeMillisecond: 0
+    lBuffIDs: 
+    dis: {x: 0, y: 4, z: 0}
+    time: 1800
+  - name: "\u51FB\u98DE-\u4E0B\u964D"
+    id: 3
+    delayTimeMillisecond: 0
+    lBuffIDs: 
+    dis: {x: 0, y: -4, z: 0}
+    time: 1800

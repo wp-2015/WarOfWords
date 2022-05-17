@@ -116,7 +116,6 @@ namespace WP
             GameUtils.ShowLog(szLog);
 
             var role = EntityManager.Instance.MakeEntity<RoleLogic>();
-            GameUtils.ShowLog("下面我来自我介绍一下");
             role.Name = pipeline.name;
             role.BodyStrength = pipeline.bodyStrength;
             role.FaceStrength = pipeline.faceStrength;

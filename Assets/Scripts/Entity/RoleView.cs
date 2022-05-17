@@ -21,6 +21,12 @@ namespace WP
                 SetStrength(value);
             }
         }
+        
+        public string GetBodyDes()
+        {
+            var range = UnityEngine.Random.Range(0, BodyInfo.Tag.Length);
+            return BodyInfo.Tag[range];
+        }
 
         private BodyInfo faceInfo;
 
@@ -44,6 +50,13 @@ namespace WP
                 SetStrength(value);
             }
         }
+        
+        public string GetVoiceDes()
+        {
+            var range = UnityEngine.Random.Range(0, VoiceInfo.Tag.Length);
+            return VoiceInfo.Tag[range];
+        }
+        
         private BodyInfo handInfo;
 
         public BodyInfo HandInfo
@@ -93,22 +106,28 @@ namespace WP
             fSpeed = GameCalculate.GetRoleSpeed(roleLogic);
         }
 
+        public RoleLogic GetLogic()
+        {
+            return roleLogic;
+        }
+
         public override void Update()
         {
             base.Update();
             var posL = roleLogic.pos;
             if (pos != posL)
             {
-                if (Vector3.Distance(pos, posL) < fSpeed)
-                {
-                    pos = posL;
-                }
-                else
-                {
-                    var dir = (posL - pos).normalized;
-                    pos = dir * fSpeed + pos;
-                }
-                GameUtils.ShowLog(string.Format("我{0},已经到了<{1}>了", Name, pos));
+                pos = posL;
+                // if (Vector3.Distance(pos, posL) < fSpeed)
+                // {
+                //     pos = posL;
+                // }
+                // else
+                // {
+                //     var dir = (posL - pos).normalized;
+                //     pos = dir * fSpeed + pos;
+                // }
+                //GameUtils.ShowLog(string.Format("我{0},已经到了<{1}>了", Name, pos));
             }
         }
     }

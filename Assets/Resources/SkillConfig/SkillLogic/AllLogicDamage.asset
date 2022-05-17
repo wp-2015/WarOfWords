@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: AllLogicDamage
   m_EditorClassIdentifier: 
   lAllSkill:
-  - id: 0
-    delayTimeMillisecond: 3000
+  - name: 
+    id: 0
+    delayTimeMillisecond: 2800
+    lBuffIDs: 00000000
     shape: 0
     fValue1: 34
     fValue2: 0

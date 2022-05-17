@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166671a0dc96c404084c77cf5633cc9e, type: 3}
   m_Name: AllEffectSkillEffect
   m_EditorClassIdentifier: 
-  lAllSkill: []
+  lAllSkill:
+  - name: "\u4E00\u6761\u795E\u9F99"
+    id: 0
+    delayTimeMillisecond: 0
+    prefabPath: 
+    bIsWorld: 1
+  - name: "\u88AB\u51FB\u7279\u6548"
+    id: 1
+    delayTimeMillisecond: 0
+    prefabPath: 
+    bIsWorld: 1

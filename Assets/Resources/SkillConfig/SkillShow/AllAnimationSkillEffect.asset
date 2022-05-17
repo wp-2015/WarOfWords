@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: AllAnimationSkillEffect
   m_EditorClassIdentifier: 
   lAllSkill:
-  - id: 0
-    delayTimeMillisecond: 1000
-    aniName: "\u795E\u9F99\u6446\u5C3E"
+  - name: "\u82F1\u96C4\u767B\u573A-\u8D77\u98DE"
+    id: 0
+    delayTimeMillisecond: 0
+    aniName: "\u8D77\u98DE\u4E4B\u52BF"
+  - name: "\u82F1\u96C4\u767B\u573A-\u4FEF\u51B2"
+    id: 1
+    delayTimeMillisecond: 0
+    aniName: "\u4FEF\u51B2\u4E4B\u52BF"
+  - name: "\u51FB\u98DE-\u5347\u8D77"
+    id: 2
+    delayTimeMillisecond: 0
+    aniName: "\u9AD8\u9AD8\u629B\u8D77"
+  - name: "\u51FB\u98DE-\u4E0B\u5760"
+    id: 3
+    delayTimeMillisecond: 0
+    aniName: "\u91CD\u91CD\u6454\u4E0B"

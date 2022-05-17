@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace WP
@@ -7,8 +8,10 @@ namespace WP
     public class SkillLogicBase
     {
         public RoleLogic roleLogic;
+        public string name;
         public int id;
         public int delayTimeMillisecond;
+        public List<int> lBuffIDs = new List<int>();
 
         public virtual void Play(RoleLogic roleLogic)
         {

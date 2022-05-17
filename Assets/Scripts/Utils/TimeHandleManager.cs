@@ -4,9 +4,13 @@ using UnityEngine;
 
 namespace WP
 {
+    public interface ITimeHandleUpdate
+    {
+        void Update();
+    }
     public class TimeHandleManager : Singleton_CSharp<TimeHandleManager>
     {
-        private struct TimeWheelItem
+        private class TimeWheelItem
         {
             public ulong id;
             public long milliSecond;
@@ -17,14 +21,25 @@ namespace WP
         public ulong AddHandleMillisecond(int ms, Action cb)
         {
             var endMillisencond = ms + GameUtils.GetNowMilliseconds();
-            dicTimeWheel.Add(lIndex, new TimeWheelItem(){id = lIndex, cb = cb, milliSecond = endMillisencond});
+            dicToAdd.Add(lIndex, new TimeWheelItem(){id = lIndex, cb = cb, milliSecond = endMillisencond});
             return lIndex++;
         }
 
         public void RemoveHandle(ulong id)
         {
-            if (dicTimeWheel.ContainsKey(id))
-                dicTimeWheel.Remove(id);
+            lToRemoveDic.Add(id);
+        }
+
+        private Dictionary<ulong, ITimeHandleUpdate> dicUpdateItem = new Dictionary<ulong, ITimeHandleUpdate>();
+        public ulong AddUpdateHandle(ITimeHandleUpdate updateHandle)
+        {
+            dicUpdateItem.Add(lIndex, updateHandle);
+            return lIndex++;
+        }
+
+        public void RemoveUpdateHandle(ulong id)
+        {
+            lTimeUpdateRemove.Add(id);
         }
 
         //TODO:这里为了防止作弊，需要获取的是服务器现在的时间
@@ -41,7 +56,14 @@ namespace WP
                     lToRemoveDic.Add(dicItem.Key);
                 }
             }
-
+            if (dicToAdd.Count > 0)
+            {
+                foreach (var dicToAddItem in dicToAdd)
+                {
+                    dicTimeWheel.Add(dicToAddItem.Key, dicToAddItem.Value);
+                }
+                dicToAdd.Clear();
+            }
             if (lToRemoveDic.Count > 0)
             {
                 foreach (var id in lToRemoveDic)
@@ -50,8 +72,26 @@ namespace WP
                 }
                 lToRemoveDic.Clear();
             }
+
+            foreach (var dicItem in dicUpdateItem)
+            {
+                var item = dicItem.Value;
+                item?.Update();
+            }
+
+            if (lTimeUpdateRemove.Count > 0)
+            {
+                foreach (var id in lTimeUpdateRemove)
+                {
+                    dicUpdateItem.Remove(id);
+                }
+                lTimeUpdateRemove.Clear();
+            }
         }
 
         private List<ulong> lToRemoveDic = new List<ulong>();
+        private Dictionary<ulong, TimeWheelItem> dicToAdd = new Dictionary<ulong, TimeWheelItem>();
+        
+        private List<ulong> lTimeUpdateRemove = new List<ulong>();
     }
 }

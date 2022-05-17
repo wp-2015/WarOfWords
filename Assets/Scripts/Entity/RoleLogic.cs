@@ -97,6 +97,21 @@ namespace WP
             lTimeEventToDo.Add(id);
         }
 
+
+        public List<BuffHandle> lWaitToMoveBuff = new List<BuffHandle>();
+        public List<BuffHandle> lBuffs = new List<BuffHandle>();
+        public void AddBuff(int buffID)
+        {
+            BuffHandle bh = new BuffHandle();
+            lBuffs.Add(bh);
+            bh.Init(buffID, this);
+        }
+
+        public void RemoveBuff(BuffHandle buff)
+        {
+            lWaitToMoveBuff.Add(buff);
+        }
+
         public override void Init(long id)
         {
             base.Init(id);
@@ -110,6 +125,20 @@ namespace WP
         {
             base.Update();
             viewEntity.Update();
+
+            foreach (var buffHandle in lBuffs)
+            {
+                buffHandle.Update();
+            }
+
+            if (lWaitToMoveBuff.Count > 0)
+            {
+                foreach (var buffHandle in lWaitToMoveBuff)
+                {
+                    lBuffs.Remove(buffHandle);
+                }
+                lWaitToMoveBuff.Clear();
+            }
         }
 
         public override void Relase()

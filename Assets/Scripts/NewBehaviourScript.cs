@@ -14,6 +14,10 @@ public class NewBehaviourScript : MonoBehaviour
     public void Start()
     {
         GamePipelineManager.Instance.EnterPipeline();
+        //Debug.Log(string.Format("<color=red>{0}</color>, <color=red>{1}</color>", 1,3));
+        
+        // GameUtils.ShowLog(string.Format("只见<color=red>{0}</color>用<color=red>{1}</color>摆出一副<color=red>{2}</color>的架势", 
+        //     1, 2, 3));
     }
 
     private void OnGUI()
